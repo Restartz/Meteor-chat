@@ -7,10 +7,9 @@ Meteor chat application with an admin ui and moderation levels.
 
 [http://restartz-chat.meteor.com/](http://restartz-chat.meteor.com/)
 
-# Login
+### Login
 
-* Create your own account 
-* Or use the following for an account with moderation level:
-..* username: mod
-..* password: password
+* Use the following for an account with moderation level:
+··* username: mod
+··* password: password
 	
