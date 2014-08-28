@@ -1,0 +1,55 @@
+
+
+<template name="chat">	
+	{{#if currentUser}}
+		{{> inputform}}	
+	{{else}}
+		<div class="loginmessage">Please <button class="showSignIn btn btn-default" type="button">sign in</button></div>
+	{{/if}}
+
+	{{> messagelist}}
+</template>
+
+<template name="inputform">
+    <div class="input-group">
+    	<input type="text" class="inputmessage form-control" placeholder="Enter a message...">
+    	<span class="input-group-btn">
+    		<button class="send btn btn-default" type="button">Send</button>
+    	</span>
+	</div><!-- /input-group -->
+</template>
+
+<template name="messagelist">
+
+	<table class="messagelist">
+		<tbody>
+<!-- 	<div class="messagelist">
+		<ul class="list-group"> -->
+			{{#each messages}}
+				{{> message}}
+			{{/each}}
+<!-- 		</ul>
+	</div> -->
+		</tbody>
+	</table>
+</template>
+
+<template name="message">
+
+
+		<tr class="message">
+			<td class="messageuser">
+				<div>
+					{{username}}<br />
+					<span class="messagetime" data-livestamp="{{created}}"></span>
+				</div>
+			</td>
+			<td class="messagetext">{{text}}</td>
+			<td class="messagedelete">
+				{{#if minLevel 10}}
+					<button type="button" class="removeMessage btn btn-danger btn-xs" value="{{_id}}">delete</button>
+				{{/if}}
+			</td>
+		</tr>
+
+</template>

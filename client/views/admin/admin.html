@@ -1,0 +1,58 @@
+<template name="admin">
+	{{#if minLevel 10}}
+
+		<!-- Button trigger modal -->
+		<button class="right btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal">
+		  Clear all
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Clear all messages</h4>
+		      </div>
+		      <div class="modal-body">
+		        Are you sure you want to clear all messages?
+		      </div>
+		      <div class="modal-footer">
+		       	<button type="button" data-dismiss="modal" class="clearAll btn btn-danger btn-xs">Clear all</button>
+		        <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<table class="table table-hover">
+		    <thead>
+		        <tr>
+		            <th>Username</th>
+		            <th>Status</th>
+		            <th>Level</th>
+		            <th></th>
+		            <th>Banned</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		    	{{#each userlist}}
+			        <tr>
+			            <td>{{username}}</td>
+						<td>
+							{{#if status.online}}
+								<span class="label label-success">Online</span>
+							{{else}}
+								<span class="label label-danger">Offline</span>
+							{{/if}}
+						</td>
+						<td><input type="range" class="levelRange" min="1" max="99" value="{{level}}">{{level}}</td>
+			            <td><input type="button" class="kick btn btn-default btn-xs" name="kick" value="Kick"></td>
+			            <td><input type="checkbox" class="isBanned" name="isBanned" value="isBanned" {{checkIsBanned}}></td>
+			        </tr>
+			    {{/each}}
+		    </tbody>
+		</table>
+	{{/if}}
+</template>
