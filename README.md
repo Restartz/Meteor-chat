@@ -9,7 +9,7 @@ Meteor chat application with an admin ui and moderation levels.
 
 ### Login
 
-* Use the following for an account with moderation level:
-··* username: mod
-··* password: password
+Use the following for an account with moderation level:
+ - username: mod
+ - password: password
 	
